@@ -1,0 +1,142 @@
+<!-- Styles -->
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+    let graphYScale = {
+        "balloonText": "",
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.2,
+        "title": "",
+        "type": "column",
+        "valueField": ""
+    }
+
+    var chart = AmCharts.makeChart("chartdiv", {
+        "theme": "light",
+        "type": "serial",
+        "dataProvider": [{
+            "country": "#101",
+            "1": 3.5,
+            "2": 4.2,
+            "3": 4.2,
+            "4": 4.9
+        }, {
+            "country": "#102",
+            "1": 1.7,
+            "2": 3.1,
+            "3": 4.2
+        }, {
+            "country": "#103",
+            "1": 2.8,
+            "2": 2.9,
+            "3": 4.2
+        }, {
+            "country": "#104",
+            "1": 2.6,
+            "2": 2.3,
+            "3": 4.2
+        }, {
+            "country": "#105",
+            "1": 1.4,
+            "2": 2.1,
+            "3": 4.2
+        }, {
+            "country": "#106",
+            "1": 2.6,
+            "2": 4.9,
+            "3": 4.2
+        }, {
+            "country": "#107",
+            "1": 6.4,
+            "2": 7.2,
+            "3": 4.2
+        }, {
+            "country": "#108",
+            "1": 8,
+            "2": 7.1,
+            "3": 4.2
+        }, {
+            "country": "#109",
+            "1": 9.9,
+            "2": 10.1,
+            "3": 4.2
+        }],
+        "valueAxes": [{
+            "stackType": "3d",
+            "unit": "%",
+            "position": "left",
+            "title": "GDP growth rate",
+        }],
+        "startDuration": 1,
+        "graphs": [
+            chart.graphs.push(getGraphYScale(1)),
+            chart.graphs.push(getGraphYScale(2)),
+            chart.graphs.push(getGraphYScale(3)),
+            chart.graphs.push(getGraphYScale(4)),
+        ],
+        "plotAreaFillAlphas": 0.1,
+        "depth3D": 60,
+        "angle": 60,
+        "categoryField": "country",
+        "categoryAxis": {
+            "gridPosition": "start"
+        },
+        "export": {
+            "enabled": true
+        }
+    });
+    /*
+        {
+            "balloonText": "x",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "title": "2004",
+            "type": "column",
+            "valueField": "year2004"
+        }, {
+            "balloonText": "x",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "title": "2005",
+            "type": "column",
+            "valueField": "year2005"
+        }, {
+            "balloonText": "x",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "title": "2006",
+            "type": "column",
+            "valueField": "year2006"
+        }, {
+            "balloonText": "x",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "title": "2007",
+            "type": "column",
+            "valueField": "year2007"
+        }
+    */
+
+    getGraphYScale = (y) => {
+        let t = y.toString();
+        graphYScale.balloonText = t;
+        graphYScale.title = t;
+        graphYScale.valueField = t;
+    }
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>

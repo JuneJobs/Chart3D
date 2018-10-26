@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JuneJobs/Chart3D/issues"
   },
-  "homepage": "https://github.com/JuneJobs/Chart3D#readme"
+  "homepage": "https://github.com/JuneJobs/Chart3D#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
